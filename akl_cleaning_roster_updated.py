@@ -20,8 +20,8 @@ class Person:
         self.job3 = job3
         self.job4 = job4
 
-# arrays used to track num workers per job
 
+# arrays used to track num workers per job
 first_bathroom = []
 second_bathroom = []
 sanitize = []
@@ -37,16 +37,10 @@ first_floor_swiffer = []
 second_floor_sweep = []
 second_floor_swiffer = []
 
-#structure outline & code notes:
-# setter: member_name.job1 = 1
-#assign users to a random list - various lists for each job
-#write this output to the file
-# object person, holds name & ints to jobs assigned (ex: 1,3,2,5, no duplicates)
-# var establishment
-
 members = []
 
 inFile = "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\AKLMemberNames.txt"
+
 
 # reading members and adding to list
 with open(inFile) as f:
@@ -58,8 +52,14 @@ for line in content: # transfer file lines to list
 for i in members: # create person objects from each name in list
     i = Person(i,0,0,0,0)
 
-for x in range (0,4)
+for x in range (0,4):  
+    pass
 
 
 # output the result
 outFile = "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
+
+
+
+# NOTES
+# setter: member_name.job1 = 1
