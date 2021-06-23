@@ -6,6 +6,9 @@
 #   one week -> one month outputted
 #   prevents duplicate jobs from being assigned in a one-month timeframe
 
+import random
+
+
 class Person:
 
     """ Used to regulate which members have been assigned what jobs.
@@ -52,8 +55,33 @@ for line in content: # transfer file lines to list
 for i in members: # create person objects from each name in list
     i = Person(i,0,0,0,0)
 
-for x in range (0,4):  
-    pass
+
+# main loop
+for x in range (0,4):
+    for ppl in members:
+
+    # todo - assignment phase
+        control = 0
+        rando_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14] # remove num from list once respective chore is full
+
+        while control == 0:
+            rando = int(random.random() * len(rando_list))
+
+            if (rando == 1):
+                if (len(first_bathroom) == 3):
+                    rando_list.remove(rando)
+                    continue
+
+                else: 
+                    first_bathroom.append(ppl)
+                    control = 1
+            
+
+
+    # todo - writing phase
+
+    # todo - clear phase
+    
 
 
 # output the result
