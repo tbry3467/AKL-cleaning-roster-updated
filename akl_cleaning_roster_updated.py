@@ -41,8 +41,8 @@ second_floor_sweep = []
 second_floor_swiffer = []
 
 members = []
-
-inFile = 1 # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\AKLMemberNames.txt" 
+member_objects = []
+inFile = "test_names.txt" # "akl_member_names.txt" 
 
 
 # reading members and adding to list
@@ -54,6 +54,7 @@ for line in content: # transfer file lines to list
 
 for i in members: # create person objects from each name in list
     i = Person(i,0,0,0,0)
+    member_objects.append(i)
 
 
 # main loop
@@ -85,7 +86,7 @@ for x in range (0,4):
 
 
 # output the result
-outFile = "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
+outFile = "output.txt" # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
 
 
 
