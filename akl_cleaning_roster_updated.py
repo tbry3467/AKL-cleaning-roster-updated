@@ -40,42 +40,62 @@ first_floor_swiffer = []
 second_floor_sweep = []
 second_floor_swiffer = []
 
-members = []
 member_objects = []
-inFile = "test_names.txt" # "akl_member_names.txt" 
+in_file = "test_names.txt" # "akl_member_names.txt" 
 
 
 # reading members and adding to list
-with open(inFile) as f:
+with open(in_file) as f:
     content = f.read().splitlines() # chops off the NL char
 
-for line in content: # transfer file lines to list
-    members.append(line)
+for line in content: # pull names, create member objects and add to list
+    line = Person(line,0,0,0,0)
+    member_objects.append(line)
 
-for i in members: # create person objects from each name in list
-    i = Person(i,0,0,0,0)
-    member_objects.append(i)
-
+# structure outline
+## check obj properties for duplicates when random rolls
+## loop member_objects, assign to lists & add int to member properties
+## clear job lists
 
 # main loop
-for x in range (0,4):
-    for ppl in members:
+for x in range (1,5): # loops 4 times for 4 job assignments per person
 
-    # todo - assignment phase
+    for ppl in member_objects:
+        # todo - assignment phase
         control = 0
-        rando_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14] # remove num from list once respective chore is full
+        rando_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14] # number mapped to job, remove num when job is full
 
         while control == 0:
-            rando = int(random.random() * len(rando_list)) # picks random num in rando_list i think?
+            rando = int(random.random() * len(rando_list)) # num btwn 1 and len of rando_list, adjusts when nums get removed
 
             if (rando == 1):
-                if (len(first_bathroom) == 3):
+                if (len(first_bathroom) == 3): # if job is full
                     rando_list.remove(rando)
-                    continue
+                    continue # debugger: check this goes back to while loop
 
-                else: 
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 1 # record job int in player's properties
+                    if x == 2: ppl.job2 = 1
+                    if x == 3: ppl.job3 = 1
+                    else: ppl.job4 = 1
+
                     first_bathroom.append(ppl)
                     control = 1
+
+            if (rando == 2):
+                if (len(second_bathroom) == 3): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 1 # record job int in player's properties
+                    if x == 2: ppl.job2 = 1
+                    if x == 3: ppl.job3 = 1
+                    else: ppl.job4 = 1
+
+                    first_bathroom.append(ppl)
+                    control = 1
+ 
 
 
 
@@ -86,7 +106,7 @@ for x in range (0,4):
 
 
 # output the result
-outFile = "output.txt" # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
+out_file = "output.txt" # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
 
 
 
