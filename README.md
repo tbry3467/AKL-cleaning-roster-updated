@@ -12,3 +12,6 @@
 ## Running the code
   - Download the Python file and run it using your favorite IDE
   - Paths to input and output file will need to be changed to fit your system's pathing
+
+## What to change within the code if adjusting members per job later down the road
+  - todo

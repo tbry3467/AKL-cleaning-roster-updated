@@ -42,7 +42,7 @@ second_floor_swiffer = []
 
 members = []
 
-inFile = "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\AKLMemberNames.txt"
+inFile = 1 # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\AKLMemberNames.txt" 
 
 
 # reading members and adding to list
@@ -65,7 +65,7 @@ for x in range (0,4):
         rando_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14] # remove num from list once respective chore is full
 
         while control == 0:
-            rando = int(random.random() * len(rando_list))
+            rando = int(random.random() * len(rando_list)) # picks random num in rando_list i think?
 
             if (rando == 1):
                 if (len(first_bathroom) == 3):
@@ -75,13 +75,13 @@ for x in range (0,4):
                 else: 
                     first_bathroom.append(ppl)
                     control = 1
-            
+
 
 
     # todo - writing phase
 
     # todo - clear phase
-    
+     
 
 
 # output the result
