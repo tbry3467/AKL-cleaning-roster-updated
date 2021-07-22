@@ -1,4 +1,4 @@
-# re-coded original house cleaning project in Python from Java
+# re-coded original house cleaning project in Python from Java. This is a WIP
 # Author: tbry3467 on GitHub
 # don't work too hard, fellas
 
@@ -39,6 +39,7 @@ first_floor_sweep = []
 first_floor_swiffer = []
 second_floor_sweep = []
 second_floor_swiffer = []
+laundry_room = []
 
 member_objects = []
 in_file = "test_names.txt" # "akl_member_names.txt" 
@@ -83,26 +84,193 @@ for x in range (1,5): # loops 4 times for 4 job assignments per person
                     control = 1
 
             if (rando == 2):
-                if (len(second_bathroom) == 3): # if job is full
+                if (len(second_bathroom) == 5): # if job is full
                     rando_list.remove(rando)
                     continue # debugger: check this goes back to while loop
 
                 else: # if job has open slot(s)
-                    if x == 1: ppl.job1 = 1 # record job int in player's properties
-                    if x == 2: ppl.job2 = 1
-                    if x == 3: ppl.job3 = 1
+                    if x == 1: ppl.job1 = 2 # record job int in player's properties
+                    if x == 2: ppl.job2 = 2
+                    if x == 3: ppl.job3 = 2
                     else: ppl.job4 = 1
 
-                    first_bathroom.append(ppl)
+                    second_bathroom.append(ppl)
+                    control = 1
+
+            if (rando == 3):
+                if (len(sanitize) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 3 # record job int in player's properties
+                    if x == 2: ppl.job2 = 3
+                    if x == 3: ppl.job3 = 3
+                    else: ppl.job4 = 1
+
+                    sanitize.append(ppl)
+                    control = 1
+
+            if (rando == 4):
+                if (len(kitchen) == 4): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 4 # record job int in player's properties
+                    if x == 2: ppl.job2 = 4
+                    if x == 3: ppl.job3 = 4
+                    else: ppl.job4 = 1
+
+                    kitchen.append(ppl)
+                    control = 1
+
+            if (rando == 5):
+                if (len(trash) == 3): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 5 # record job int in player's properties
+                    if x == 2: ppl.job2 = 5
+                    if x == 3: ppl.job3 = 5
+                    else: ppl.job4 = 1
+
+                    trash.append(ppl)
+                    control = 1
+
+            if (rando == 6):
+                if (len(attic) == 3): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 6 # record job int in player's properties
+                    if x == 2: ppl.job2 = 6
+                    if x == 3: ppl.job3 = 6
+                    else: ppl.job4 = 1
+
+                    attic.append(ppl)
+                    control = 1
+
+            if (rando == 7):
+                if (len(eagle_nest) == 2): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 7 # record job int in player's properties
+                    if x == 2: ppl.job2 = 7
+                    if x == 3: ppl.job3 = 7
+                    else: ppl.job4 = 1
+
+                    eagle_nest.append(ppl)
+                    control = 1
+
+            if (rando == 8):
+                if (len(chapter_room) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 8 # record job int in player's properties
+                    if x == 2: ppl.job2 = 8
+                    if x == 3: ppl.job3 = 8
+                    else: ppl.job4 = 1
+
+                    chapter_room.append(ppl)
+                    control = 1
+
+            if (rando == 9):
+                if (len(odd_jobs) == 5): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 9 # record job int in player's properties
+                    if x == 2: ppl.job2 = 9
+                    if x == 3: ppl.job3 = 9
+                    else: ppl.job4 = 1
+
+                    odd_jobs.append(ppl)
+                    control = 1
+
+            if (rando == 10):
+                if (len(first_floor_sweep) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 10 # record job int in player's properties
+                    if x == 2: ppl.job2 = 10
+                    if x == 3: ppl.job3 = 10
+                    else: ppl.job4 = 1
+
+                    first_floor_sweep.append(ppl)
+                    control = 1
+
+            if (rando == 11):
+                if (len(first_floor_swiffer) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 11 # record job int in player's properties
+                    if x == 2: ppl.job2 = 11
+                    if x == 3: ppl.job3 = 11
+                    else: ppl.job4 = 1
+
+                    first_floor_swiffer.append(ppl)
+                    control = 1
+
+            if (rando == 12):
+                if (len(second_floor_sweep) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 12 # record job int in player's properties
+                    if x == 2: ppl.job2 = 12
+                    if x == 3: ppl.job3 = 12
+                    else: ppl.job4 = 1
+
+                    second_floor_sweep.append(ppl)
+                    control = 1
+
+            if (rando == 13):
+                if (len(second_floor_swiffer) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 13 # record job int in player's properties
+                    if x == 2: ppl.job2 = 13
+                    if x == 3: ppl.job3 = 13
+                    else: ppl.job4 = 1
+
+                    second_floor_swiffer.append(ppl)
+                    control = 1
+
+            if (rando == 14):
+                if (len(laundry_room) == 1): # if job is full
+                    rando_list.remove(rando)
+                    continue # debugger: check this goes back to while loop
+
+                else: # if job has open slot(s)
+                    if x == 1: ppl.job1 = 14 # record job int in player's properties
+                    if x == 2: ppl.job2 = 14
+                    if x == 3: ppl.job3 = 14
+                    else: ppl.job4 = 1
+
+                    laundry_room.append(ppl)
                     control = 1
  
 
 
-
-    # todo - writing phase
-
     # todo - clear phase
-     
+    print ("at this point, objects get cleared")
+# todo - writing phase
+print("now we write")
 
 
 # output the result
