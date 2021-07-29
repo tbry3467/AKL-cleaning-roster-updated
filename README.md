@@ -10,8 +10,13 @@
   - Members will no longer get duplicate jobs several weeks in a row (no dupes in 1-month period)
 
 ## Running the code
-  - Download the Python file and run it using your favorite IDE
-  - Paths to input and output file will need to be changed to fit your system's pathing
+  - Download the Python file and run it using your IDE of choice
+  - input & output files included in the repo
 
-## What to change within the code if adjusting members per job later down the road
-  - todo
+## How to Update for Future Use
+  - akl_member_names.txt contains member names. Exclude new members because they clean the basement
+  - todo - adjusting job sizes
+
+
+## Variables and Structures Explained
+  - todo, explain the stuff used in this code
