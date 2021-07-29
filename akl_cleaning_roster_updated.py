@@ -40,6 +40,8 @@ first_floor_swiffer = []
 second_floor_sweep = []
 second_floor_swiffer = []
 laundry_room = []
+all_jobs = [first_bathroom, second_bathroom, sanitize, kitchen, trash, attic, eagle_nest, chapter_room, odd_jobs,
+no_job, first_floor_sweep, first_floor_swiffer, second_floor_sweep, second_floor_swiffer, laundry_room]
 
 member_objects = []
 in_file = "test_names.txt" # "akl_member_names.txt" 
@@ -71,196 +73,238 @@ for x in range (1,5): # loops 4 times for 4 job assignments per person
 
             if (rando == 1):
                 if (len(first_bathroom) == 3): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(1)
+                    continue
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+
                     if x == 1: ppl.job1 = 1 # record job int in player's properties
-                    if x == 2: ppl.job2 = 1
-                    if x == 3: ppl.job3 = 1
+                    elif x == 2: ppl.job2 = 1
+                    elif x == 3: ppl.job3 = 1
                     else: ppl.job4 = 1
 
                     first_bathroom.append(ppl)
                     control = 1
 
-            if (rando == 2):
+            elif (rando == 2):
                 if (len(second_bathroom) == 5): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(2)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+
                     if x == 1: ppl.job1 = 2 # record job int in player's properties
-                    if x == 2: ppl.job2 = 2
-                    if x == 3: ppl.job3 = 2
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 2
+                    elif x == 3: ppl.job3 = 2
+                    else: ppl.job4 = 2
 
                     second_bathroom.append(ppl)
                     control = 1
 
-            if (rando == 3):
+            elif (rando == 3):
                 if (len(sanitize) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(3)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+
                     if x == 1: ppl.job1 = 3 # record job int in player's properties
-                    if x == 2: ppl.job2 = 3
-                    if x == 3: ppl.job3 = 3
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 3
+                    elif x == 3: ppl.job3 = 3
+                    else: ppl.job4 = 3
 
                     sanitize.append(ppl)
                     control = 1
 
-            if (rando == 4):
+            elif (rando == 4):
                 if (len(kitchen) == 4): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(4)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 4 # record job int in player's properties
-                    if x == 2: ppl.job2 = 4
-                    if x == 3: ppl.job3 = 4
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 4
+                    elif x == 3: ppl.job3 = 4
+                    else: ppl.job4 = 4
 
                     kitchen.append(ppl)
                     control = 1
 
-            if (rando == 5):
+            elif (rando == 5):
                 if (len(trash) == 3): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(5)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 5 # record job int in player's properties
-                    if x == 2: ppl.job2 = 5
-                    if x == 3: ppl.job3 = 5
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 5
+                    elif x == 3: ppl.job3 = 5
+                    else: ppl.job4 = 5
 
                     trash.append(ppl)
                     control = 1
 
-            if (rando == 6):
+            elif (rando == 6):
                 if (len(attic) == 3): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(6)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 6 # record job int in player's properties
-                    if x == 2: ppl.job2 = 6
-                    if x == 3: ppl.job3 = 6
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 6
+                    elif x == 3: ppl.job3 = 6
+                    else: ppl.job4 = 6
 
                     attic.append(ppl)
                     control = 1
 
-            if (rando == 7):
+            elif (rando == 7):
                 if (len(eagle_nest) == 2): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(7)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 7 # record job int in player's properties
-                    if x == 2: ppl.job2 = 7
-                    if x == 3: ppl.job3 = 7
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 7
+                    elif x == 3: ppl.job3 = 7
+                    else: ppl.job4 = 7
 
                     eagle_nest.append(ppl)
                     control = 1
 
-            if (rando == 8):
+            elif (rando == 8):
                 if (len(chapter_room) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(8)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 8 # record job int in player's properties
-                    if x == 2: ppl.job2 = 8
-                    if x == 3: ppl.job3 = 8
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 8
+                    elif x == 3: ppl.job3 = 8
+                    else: ppl.job4 = 8
 
                     chapter_room.append(ppl)
                     control = 1
 
-            if (rando == 9):
+            elif (rando == 9):
                 if (len(odd_jobs) == 5): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(9)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 9 # record job int in player's properties
-                    if x == 2: ppl.job2 = 9
-                    if x == 3: ppl.job3 = 9
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 9
+                    elif x == 3: ppl.job3 = 9
+                    else: ppl.job4 = 9
 
                     odd_jobs.append(ppl)
                     control = 1
 
-            if (rando == 10):
+            elif (rando == 10):
                 if (len(first_floor_sweep) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(10)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 10 # record job int in player's properties
-                    if x == 2: ppl.job2 = 10
-                    if x == 3: ppl.job3 = 10
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 10
+                    elif x == 3: ppl.job3 = 10
+                    else: ppl.job4 = 10
 
                     first_floor_sweep.append(ppl)
                     control = 1
 
-            if (rando == 11):
+            elif (rando == 11):
                 if (len(first_floor_swiffer) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(11)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 11 # record job int in player's properties
-                    if x == 2: ppl.job2 = 11
-                    if x == 3: ppl.job3 = 11
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 11
+                    elif x == 3: ppl.job3 = 11
+                    else: ppl.job4 = 11
 
                     first_floor_swiffer.append(ppl)
                     control = 1
 
-            if (rando == 12):
+            elif (rando == 12):
                 if (len(second_floor_sweep) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(12)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 12 # record job int in player's properties
-                    if x == 2: ppl.job2 = 12
-                    if x == 3: ppl.job3 = 12
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 12
+                    elif x == 3: ppl.job3 = 12
+                    else: ppl.job4 = 12
 
                     second_floor_sweep.append(ppl)
                     control = 1
 
-            if (rando == 13):
+            elif (rando == 13):
                 if (len(second_floor_swiffer) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(13)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 13 # record job int in player's properties
-                    if x == 2: ppl.job2 = 13
-                    if x == 3: ppl.job3 = 13
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 13
+                    elif x == 3: ppl.job3 = 13
+                    else: ppl.job4 = 13
 
                     second_floor_swiffer.append(ppl)
                     control = 1
 
-            if (rando == 14):
+            else:
                 if (len(laundry_room) == 1): # if job is full
-                    rando_list.remove(rando)
-                    continue # debugger: check this goes back to while loop
+                    rando_list.remove(14)
+                    continue 
 
                 else: # if job has open slot(s)
+                    if ppl.job1 == rando or ppl.job2 == rando or ppl.job3 == rando or ppl.job4 == rando: # prevents duplicate jobs per month
+                        continue
+                    
                     if x == 1: ppl.job1 = 14 # record job int in player's properties
-                    if x == 2: ppl.job2 = 14
-                    if x == 3: ppl.job3 = 14
-                    else: ppl.job4 = 1
+                    elif x == 2: ppl.job2 = 14
+                    elif x == 3: ppl.job3 = 14
+                    else: ppl.job4 = 14
 
                     laundry_room.append(ppl)
                     control = 1
@@ -268,9 +312,12 @@ for x in range (1,5): # loops 4 times for 4 job assignments per person
 
 
     # todo - clear phase
-    print ("at this point, objects get cleared")
+    for jobs in all_jobs:
+        jobs.clear
 # todo - writing phase
-print("now we write")
+# test to make sure script works
+for ppl in member_objects:
+    print(ppl.job1, ppl.job2, ppl.job3, ppl.job4)
 
 
 # output the result
@@ -278,5 +325,6 @@ out_file = "output.txt" # "C:\\Users\\S537321\\Documents\\School\\Personal Proje
 
 
 
-# NOTES
-# setter: member_name.job1 = 1
+# NOTES BELOW
+# ctrl+h find and replace
+# ctrl+` terminal
