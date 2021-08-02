@@ -3,6 +3,7 @@
 # don't work too hard, fellas
 
 import random
+from datetime import date
 from openpyxl import load_workbook
 
 class Person:
@@ -20,6 +21,22 @@ class Person:
         self.job2 = job2
         self.job3 = job3
         self.job4 = job4
+
+
+def get_mondays():
+    day = date.today 
+    #d = today.strftime("%m/%d/%y") # mm/dd/y date format
+    monday_dates = []
+    count = 0
+    
+    # loop iterates the current date until 4 mondays are found
+    while count != 4:
+        if day.weekday() == 0: # 0 == monday, 1 == tuesday, etc
+            monday_dates.append(day)
+            count += count
+        day = day + datetime.timedelta(days=1)
+
+    return monday_dates
 
 
 # lists used to track num of workers per job 
@@ -106,6 +123,14 @@ for ppl in member_objects:
 
 # todo - writing phase
 wb = load_workbook("output")
+sheet = wb("master")
+
+# clear workbook
+# todo
+
+# set headers to proper date
+mondays = get_mondays()
+
 
 
 # output the result
