@@ -1,11 +1,17 @@
 import random
 import sys
 import logging
+import os
 from pandas import read_excel
 from datetime import date
 from openpyxl import load_workbook
 
-def get_master_data_records_xlsx(sheet_name="test_output"):
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../"))
+
+
+module_folder = os.path.dirname(os.path.abspath(__file__))
+
+def get_master_data_records_xlsx(path=f"{module_folder}/test_output.xlsx", sheet_name="output.xlsx"):
     """
     Reads records from the master data excel file.
     Must be an [.xlsx]
@@ -22,6 +28,8 @@ def get_master_data_records_xlsx(sheet_name="test_output"):
         data_frame = read_excel(sheet_name=sheet_name, dtype=str)
     except Exception:
         logging.error(f"Excel file may be corrupted! Exiting app to avoid damage.")
-        sys.exit()
+        #sys.exit()
 
 records = get_master_data_records_xlsx()
+
+print ("hey")
