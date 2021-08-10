@@ -2,6 +2,7 @@
 # Author: tbry3467 on GitHub
 # don't work too hard, fellas
 
+from os import name
 import random
 from datetime import date
 from openpyxl import load_workbook
@@ -29,14 +30,14 @@ def get_mondays():
     monday_dates = []
     count = 0
     
-    # loop iterates the current date until 4 mondays are found
-    while count != 4:
-        if day.weekday() == 0: # 0 == monday, 1 == tuesday, etc
-            monday_dates.append(day)
-            count += count
-        day = day + datetime.timedelta(days=1)
+    # # loop iterates the current date until 4 mondays are found
+    # while count != 4:
+    #     if day.weekday() == 0: # 0 == monday, 1 == tuesday, etc
+    #         monday_dates.append(day)
+    #         count += count
+    #     day = day + datetime.timedelta(days=1)
 
-    return monday_dates
+    # return monday_dates
 
 
 # lists used to track num of workers per job 
@@ -122,21 +123,47 @@ for ppl in member_objects:
 
 
 # todo - writing phase
-wb = load_workbook("output")
-sheet = wb("master")
+wb = load_workbook("test_output.xlsx") # change to outpput when done
+sheet = wb.worksheets[0]
+
+# perhaps put date in cell col 1 row 1,18,35,52
+
+# clear cells B67 -> F67, this is where member names go
+
+# week 1 writing
+week_incrementer = 0
+
+for col in range(2,6):
+    for ppl in member_objects:
+        if col == 2:
+            job = ppl.job1
+        elif col == 3:
+            job = ppl.job2
+        elif col == 4:
+            job = ppl.job3
+        else:
+            job = ppl.job4
+
+        # this check sequence ensures we can fit 1-5 people per job onto sheet
+        if sheet.cell(column=2, row=job+1+week_incrementer).value == None:
+            sheet.cell(column=2, row=job+1+week_incrementer).value = ppl.name
+        elif sheet.cell(column=3, row=job+1+week_incrementer).value == None:
+            sheet.cell(column=3, row=job+1+week_incrementer).value = ppl.name
+        elif sheet.cell(column=4, row=job+1+week_incrementer).value == None:
+            sheet.cell(column=4, row=job+1+week_incrementer).value = ppl.name
+        elif sheet.cell(column=5, row=job+1+week_incrementer).value == None:
+            sheet.cell(column=5, row=job+1+week_incrementer).value = ppl.name
+        else:
+            sheet.cell(column=6, row=job+1+week_incrementer).value = ppl.name
+    week_incrementer += 17
 
 # clear workbook
 # todo
 
 # set headers to proper date
-mondays = get_mondays()
+#mondays = get_mondays()
 
-
-
-# output the result
-out_file = "output.txt" # "C:\\Users\\S537321\\Documents\\School\\Personal Projects\\houseCleaningJobs.txt"
-
-
+wb.save("test_output.xlsx")
 
 # NOTES BELOW
 # ctrl+h find and replace
