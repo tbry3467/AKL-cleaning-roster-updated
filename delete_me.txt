@@ -1,14 +1,16 @@
-if (firstBathroom.size() == 3)
-if (secondBathroom.size() == 5)
-if (sanitize.size() == 1)
-if (kitchen.size() == 4)
-if (trash.size() == 3)
-if (attic.size() == 3)
-if (eagleNest.size() == 2)
-if (chapterRoom.size() == 1)
-if (oddJobs.size() == 5)
-if (firstFloorSweep.size() == 1)
-if (firstFloorSwiffer.size() == 1)
-if (secondFloorSweep.size() == 1)
-if (secondFloorSwiffer.size() == 1)
-laundry room == 1
+first_bathroom = []         # capacity 2
+second_bathroom = []        # capacity 3
+kitchen = []                # capacity 4
+trash = []                  # capacity 1
+attic = []                  # capacity 3
+eagle_nest = []             # capacity 2
+chapter_room = []           # capacity 1
+odd_jobs = []               # capacity 5
+first_floor_sweep = []      # capacity 1
+first_floor_swiffer = []    # capacity 1
+second_floor_sweep = []     # capacity 1
+second_floor_swiffer = []   # capacity 1
+
+no_job = []                 # no capacity
+
+total slots = 25 
