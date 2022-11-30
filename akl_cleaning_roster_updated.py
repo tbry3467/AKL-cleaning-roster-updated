@@ -1,7 +1,6 @@
 # Author: tbry3467 on GitHub
 # re-coded original Java house cleaning project in Python w/ added functionality
 # See the readme for objectives and requirements 
-# don't work too hard, fellas
 # todo: add a catch if all jobs are full, put everyone else in nojob
 
 from os import name
@@ -18,30 +17,13 @@ class Person:
         ex: '5' would represent 'trash' has been assigned
     """
 
-    def __init__(self, name, job1, job2, job3, job4): # can i just pass name and set jobs to 0 in constructor?
-        self.name = name # note: single underscore signifies to readers that it's a private attribute
+    def __init__(self, name, job1, job2, job3, job4): 
+        # note: single underscore signifies to readers that it's a private attribute
+        self.name = name
         self.job1 = job1
         self.job2 = job2
         self.job3 = job3
         self.job4 = job4
-
-
-# todo: figure out the date when generating
-def get_mondays():
-    pass
-    day = date.today 
-    #d = today.strftime("%m/%d/%y") # mm/dd/y date format
-    monday_dates = []
-    count = 0
-    
-    # # loop iterates the current date until 4 mondays are found
-    # while count != 4:
-    #     if day.weekday() == 0: # 0 == monday, 1 == tuesday, etc
-    #         monday_dates.append(day)
-    #         count += count
-    #     day = day + datetime.timedelta(days=1)
-
-    # return monday_dates
 
 
 # lists used to track num of workers per job 
@@ -57,33 +39,32 @@ first_floor_sweep = []      # capacity 1
 first_floor_swiffer = []    # capacity 1
 second_floor_sweep = []     # capacity 1
 second_floor_swiffer = []   # capacity 1
-no_job = []                 # no capacity
-
+no_job = []                 # no capacity, manual placement via House Manager
 
 # array of all jobs, used for random selection
 all_jobs = [first_bathroom, second_bathroom, kitchen, trash, attic,
 eagle_nest, chapter_room, odd_jobs, first_floor_sweep, 
 first_floor_swiffer, second_floor_sweep, second_floor_swiffer]
 
-
 # reading members and adding to list
 member_objects = []
 in_file = "akl_member_names.txt" # "akl_member_names.txt"
 
 with open(in_file) as f:
-    content = f.read().splitlines() # chops off NL char
+    content = f.read().splitlines() 
 
 for line in content: # pull names, create member objects w default values and add to list
     line = Person(line,0,0,0,0)
     member_objects.append(line)
 
+##### main loop #####
 
+# todo: add a catch where if all jobs are full, put everyone else in no job
 
-# main loop
 for x in range (1,5): # loops 4 times for 4 job assignments per person
 
     for ppl in member_objects:
-        # todo - assignment phase
+        # assignment phase
         control = 0
         job_nums = [1,2,3,4,5,6,7,8,9,10,11,12] # jobs mapped to num, remove num when job is full
         capacity = [2,3,4,1,3,2,1,5,1,1,1,1] # num of ppl allowed in each job, in order
@@ -91,22 +72,21 @@ for x in range (1,5): # loops 4 times for 4 job assignments per person
         while control == 0:
             random_job = int(random.random() * len(job_nums)) # num btwn 1 and len of job_num, adjusts when nums get removed
 
-            # start of experimental for loop - need to test this
-
             for job in job_nums:
                 if job == random_job:
 
                     # check if job is at max capacity
                     if len(all_jobs[random_job]) == capacity[random_job]: # if len(job) == capacity for said job:
                         job_nums.remove(job) # removes job num b/c full
-                        del capacity[job-1] # removes corresponding size for that job
+                        del capacity[job-1] # removes corresponding capacity for that job
                         continue
 
+                    # if the job is not at max capacity
                     else: 
                         if ppl.job1 == job or ppl.job2 == job or ppl.job3 == job or ppl.job4 == job: # prevents duplicate jobs w/in 1 month
                             continue
 
-                        if x == 1: ppl.job1 = random_job # record job int in player's properties
+                        if x == 1: ppl.job1 = random_job # record job int in person's properties
                         elif x == 2: ppl.job2 = random_job
                         elif x == 3: ppl.job3 = random_job
                         else: ppl.job4 = random_job
@@ -114,22 +94,22 @@ for x in range (1,5): # loops 4 times for 4 job assignments per person
                         (all_jobs[random_job]).append(ppl)
                         control=1
 
-    # todo - clear phase
+    # clear names from jobs to restart for the next week
     for jobs in all_jobs:
         jobs.clear
 
 # test to make sure script works
 for ppl in member_objects:
-    print(ppl.job1, ppl.job2, ppl.job3, ppl.job4)
+    print(ppl.name, ppl.job1, ppl.job2, ppl.job3, ppl.job4)
 
-
-# todo - writing phase
-wb = load_workbook("test_output.xlsx") # change to outpput when done
+# writing phase
+wb = load_workbook("test_output.xlsx") # change to output when done
 sheet = wb.worksheets[0]
 
-# perhaps put date in cell col 1 row 1,18,35,52
-
-# clear cells B67 -> F67, this is where member names go
+# clear cells from previous month - need to verify this works
+for c in range (2,6):
+    for r in range (2,59):
+        sheet.cell(column=c, row=r).value == None
 
 # week 1 writing
 week_incrementer = 0 # used to regulate cells being filled
@@ -145,7 +125,7 @@ for col in range(2,6):
         else:
             job = ppl.job4
 
-        # this check sequence ensures we can fit 1-5 people per job onto sheet
+        # this check sequence ensures we can fit 1-5 people per job onto sheet (won't overwrite any names)
         if sheet.cell(column=2, row=job+1+week_incrementer).value == None:
             sheet.cell(column=2, row=job+1+week_incrementer).value = ppl.name
         elif sheet.cell(column=3, row=job+1+week_incrementer).value == None:
@@ -156,16 +136,10 @@ for col in range(2,6):
             sheet.cell(column=5, row=job+1+week_incrementer).value = ppl.name
         else:
             sheet.cell(column=6, row=job+1+week_incrementer).value = ppl.name
-    week_incrementer += 17
+    week_incrementer += 15
 
-# clear workbook
-# todo
 
 # set headers to proper date
-#mondays = get_mondays()
+# mondays = get_mondays()
 
 wb.save("test_output.xlsx")
-
-# NOTES BELOW
-# ctrl+h find and replace
-# ctrl+` terminal
