@@ -59,7 +59,10 @@ for line in content: # pull names, create member objects w default values and ad
 
 ##### main loop #####
 
-# todo: add a catch where if all jobs are full, put everyone else in no job
+# Looking back at this project, I should have used a dictionary to more-cleanly store the data
+    # ex: dict = {name1 : [job1,job2,job3,job4], name2 : [job1,job2,job3,job4], etc... }
+# the thrice-nested for-loops hurt my soul to look at nowadays. A cleaner solution is needed if the scope
+# of the data could potentially have been increased. Recursion, more-efficient data structures, etc. Needed
 
 for x in range (1,5): # loops 4 times for 4 job assignments per person
 
@@ -137,9 +140,5 @@ for col in range(2,6):
         else:
             sheet.cell(column=6, row=job+1+week_incrementer).value = ppl.name
     week_incrementer += 15
-
-
-# set headers to proper date
-# mondays = get_mondays()
 
 wb.save("test_output.xlsx")
